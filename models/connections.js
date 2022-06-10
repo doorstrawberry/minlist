@@ -1,6 +1,6 @@
 // import dependencies
-require("dotenv").config()
-const mongoose = require("mongoose")
+require("dotenv").config() // need this to access the DATABASE_URL variable in the .env file
+const mongoose = require("mongoose") // need this to connect to the mongodb database via mongoose
 
 // setting up inputs
 const DATABASE_URL = process.env.DATABASE_URL
