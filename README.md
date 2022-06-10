@@ -18,4 +18,5 @@ Honestly, the website speaks for itself. You need an account, but you don't need
 ![Account Page](https://user-images.githubusercontent.com/104126976/173100890-4b5624ae-5ffc-40ee-8378-9f95005d9fe4.jpg)
 
 ## An Entity Relationship Diagram
-![ERD](https://user-images.githubusercontent.com/104126976/173103136-69eebb82-fe7c-4aa9-af46-4ebf4bcb7aec.jpg)
+![ERD](https://user-images.githubusercontent.com/104126976/173103248-a4d91b06-6d6d-4a31-8cf2-27f07d3c3f4c.jpg)
+
