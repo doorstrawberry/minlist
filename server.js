@@ -28,7 +28,7 @@ app.use("/users", UsersRouter)
 app.use("/reviews", ReviewsRouter)
 // testing route (will soon later become a log in)
 app.get("/", (req, res) => {
-    res.send("Checking route")
+    res.render("index")
 })
 
 // server listener
