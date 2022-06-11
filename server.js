@@ -8,6 +8,9 @@ const mongoose = require("./models/connections.js") // need this to establish co
 // creating our application object
 const app = require("liquid-express-views")(express(), { root: [path.resolve(__dirname, 'views/')] }) // also using liquid epxress views
 
+// to use the products route
+const ProductsRouter = require("./controllers/products.js")
+
 // middleware
 app.use(methodOverride("_method")) // to use the method-override dependency
 app.use(express.urlencoded({extended: true})) // to be able to log data sent throughout the website
@@ -15,6 +18,7 @@ app.use(express.static("public")) // to place styling in the public directory
 
 
 // routes
+app.use("/products", ProductsRouter)
 // testing route (will soon later become a log in)
 app.get("/", (req, res) => {
     res.send("Checking route")
