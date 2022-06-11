@@ -11,14 +11,21 @@ const app = require("liquid-express-views")(express(), { root: [path.resolve(__d
 // to use the products route
 const ProductsRouter = require("./controllers/products.js")
 
+// to use the users route
+const UsersRouter = require("./controllers/users.js")
+
+// to use the reviews route
+const ReviewsRouter = require("./controllers/reviews.js")
+
 // middleware
 app.use(methodOverride("_method")) // to use the method-override dependency
 app.use(express.urlencoded({extended: true})) // to be able to log data sent throughout the website
 app.use(express.static("public")) // to place styling in the public directory
 
-
 // routes
 app.use("/products", ProductsRouter)
+app.use("/users", UsersRouter)
+app.use("/reviews", ReviewsRouter)
 // testing route (will soon later become a log in)
 app.get("/", (req, res) => {
     res.send("Checking route")
