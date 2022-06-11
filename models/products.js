@@ -35,5 +35,5 @@ const productsSchema = new Schema({
 })
 
 // makes product model
-const Products = model('products', productsSchema)
+const Products = model('Products', productsSchema)
 module.exports = Products
