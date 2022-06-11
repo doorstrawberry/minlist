@@ -11,6 +11,8 @@ const app = require("liquid-express-views")(express(), { root: [path.resolve(__d
 // middleware
 app.use(methodOverride("_method")) // to use the method-override dependency
 app.use(express.urlencoded({extended: true})) // to be able to log data sent throughout the website
+app.use(express.static("public")) // to place styling in the public directory
+
 
 // routes
 // testing route (will soon later become a log in)
