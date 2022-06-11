@@ -5,7 +5,7 @@ const mongoose = require("./connections.js")
 const { Schema, model } = mongoose
 
 // make product schema 
-const productSchema = new Schema({
+const productsSchema = new Schema({
     // name of the product 
     name: {
         type: String,
@@ -35,5 +35,5 @@ const productSchema = new Schema({
 })
 
 // makes product model
-const Product = model('products', productSchema)
-module.exports = Product
+const Products = model('products', productsSchema)
+module.exports = Products
