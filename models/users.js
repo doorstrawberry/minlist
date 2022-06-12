@@ -32,6 +32,7 @@ const usersSchema = new Schema({
         type: String,
         required: true
     },
+    location: String,
     contactinfo: String,
     // referencing the products list
     productsList: [{type: Schema.Types.ObjectId, ref: 'Products'}],

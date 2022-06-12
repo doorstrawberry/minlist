@@ -25,6 +25,10 @@ router.post("/login", (req, res) => {
             const result = await bcrypt.compare(password, user.password)
 
             if (result) {
+                // store properties in the session
+                req.session.username = username
+                req.session.loggedIn = true
+
                 // redirect to users account
                 res.render('users/account', {
                     userInfo: user
@@ -67,6 +71,13 @@ router.post("/signup", async (req, res) => {
             res.json({ error })
         })
 })
+
+router.get("/logout", (req, res) => {
+    // destroy session and redirect to main page
+    req.session.destroy((err) => {
+        res.redirect("/");
+    });
+});
 
 // export the router
 module.exports = router

@@ -17,10 +17,23 @@ const UsersRouter = require("./controllers/users.js")
 // to use the reviews route
 const ReviewsRouter = require("./controllers/reviews.js")
 
+// to allow log in
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
+
 // middleware
 app.use(methodOverride("_method")) // to use the method-override dependency
 app.use(express.urlencoded({extended: true})) // to be able to log data sent throughout the website
 app.use(express.static("public")) // to place styling in the public directory
+// to set up my session
+app.use(
+    session({
+        secret: process.env.SECRET,
+        store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
+        saveUninitialized: true,
+        resave: false
+    })
+);
 
 // routes
 app.use("/products", ProductsRouter)
