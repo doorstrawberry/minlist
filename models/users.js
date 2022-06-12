@@ -28,6 +28,14 @@ const usersSchema = new Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String,
+        required: true
+    },
+    contactinfo: {
+        type: String,
+        required: true
+    },
     // referencing the products list
     productsList: [{type: Schema.Types.ObjectId, ref: 'Products'}],
     // embedding the reviews list
