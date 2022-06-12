@@ -25,8 +25,10 @@ router.post("/login", (req, res) => {
             const result = await bcrypt.compare(password, user.password)
 
             if (result) {
-                // redirect to fruits
-                res.send("log-in successful")
+                // redirect to users account
+                res.render('users/account', {
+                    userInfo: user
+                })
             }
             else {
                 res.json({ error: "password doesen't match" })
