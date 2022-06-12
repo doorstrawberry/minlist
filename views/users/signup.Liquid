@@ -1,13 +1,13 @@
 {% layout "layout.liquid" %} {% block content %}
 <div class="center">
-    <form action="" method="post">
+    <form action="/users/signup" method="post">
         <fieldset>
             <legend>New User</legend>
             <label>NAME: <input type="text" name="name" required></label><br>
             <label>PHONE: <input type="text" name="contactinfo"></label><br>
             <label>USERNAME: <input type="text" name="username" required /> </label><br>
             <label>PASSWORD: <input type="password" name="password" required />
-            </label>
+            </label><br>
             <input type="submit" value="Create Account" />
         </fieldset>
     </form>
