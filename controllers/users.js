@@ -7,29 +7,14 @@ const router = express.Router()
 
 // routes
 
-// index
-router.get("/", (req, res) => {
-    res.send("users index route")
-})
-// new
-router.get("/new", (req, res) => {
-    res.send("users new route")
+// login
+router.get("/login", (req, res) => {
+    res.render("users/login")
 })
 
-// destroy
-
-// update
-
-// create
-
-// edit
-router.get("/:id/edit", (req, res) => {
-    res.send("users edit route")
-})
-
-// show
-router.get("/:id", (req, res) => {
-    res.send("users show route")
+// sign up
+router.get("/signup", (req, res) => {
+    res.render("users/signup")
 })
 
 // export the router
