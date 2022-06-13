@@ -6,14 +6,35 @@ body {
     background: #ecf2f9;
 }
 
+/* Styling the index page */
 .main-index {
-    
+    height: 300px;
+    width: auto;
 }
 
-.login {
-
+.main-index::after {
+    content: "minlist";
+    text-decoration: underline;
+    font-size: 150px;
+    animation-name: wordAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
 }
 
-.signup {
-    
+@keyframes wordAnimation {
+    0% {content: ""}
+    14% {content: "m";
+        font-size: 100px;}
+    28% {content: "mi";
+        font-size: 100px;}
+    42% {content: "min";
+        font-size: 100px;}
+    56% {content: "minl";
+        font-size: 100px;}
+    70% {content: "minli";
+        font-size: 100px;}
+    84% {content: "minlis";
+        font-size: 100px;}
+    98% {content: "minlist";
+        font-size: 100px;}
 }
