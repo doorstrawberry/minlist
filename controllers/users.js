@@ -99,11 +99,16 @@ router.get("/:id/account", (req, res) => {
         })
 })
 
-router.get("/:id/accountview", (req, res) => {
+router.get("/:id/accountview/:viewingId", (req, res) => {
     Users.findById(req.params.id)
-    .then((user) => {
-        res.render("users/account-view", {
-            user: user
+    .then((viewingUser) => {
+        Users.findById(req.params.viewingId)
+        .then((viewedUser) => {
+            res.render("users/account-view", {
+                viewedUser: viewedUser,
+                viewingUser: viewingUser,
+                reviews: viewedUser.reviews
+            })
         })
     })
 })

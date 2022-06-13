@@ -1,0 +1,13 @@
+{% layout "layout.liquid" %} {% block content %}
+<h1>new review</h1>
+<div class="center">
+    <form action="/reviews/{{fromUser._id}}/new/{{toUser._id}}" method="post">
+        <fieldset>
+            <legend>New Review</legend>
+            <label>CONTENT: <textarea type="text" name="content"></textarea></label><br>
+            </label><br>
+            <input type="submit" value="Add Review" />
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

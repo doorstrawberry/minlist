@@ -6,14 +6,10 @@ const { Schema, model } = mongoose
 
 // make review schema
 const reviewSchema = new Schema({
+    // name of reviewer
+    username: String,
     // content of the review
     content: String,
-    // rating of the user
-    rating: {
-        type: Number, 
-        min: 1, 
-        max: 5, 
-        default: 5}
   }, {
     timestamps: true
   });
@@ -44,4 +40,5 @@ const usersSchema = new Schema({
 
 // exporting user schema
 const Users = model('User', usersSchema);
+
 module.exports = Users

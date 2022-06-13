@@ -1,4 +1,8 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1>Account View</h1>
-<h1>{{user.name}}</h1>
+<h1>Viewing {{viewingUser.name}}</h1>
+<h1>Viewed {{viewedUser.name}}</h1>
+<a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}">Add Review for {{viewingUser.name}}</a>
+{{reviews}}
+<h1>{{reviews[0].content}}</h1>
 {% endblock %}
