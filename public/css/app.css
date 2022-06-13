@@ -72,3 +72,27 @@ body {
 .accountProducts {
     margin-top: 2%;
 }
+
+/* browse products list */
+.productName {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.productName a {
+    text-decoration: none;
+    color: #324e7b;
+}
+
+.productName a:hover {
+    opacity: 50%;
+}
+
+.productName a img {
+    margin: 10px;
+}
+
+.productName a img:hover {
+    opacity: 50%;
+}
