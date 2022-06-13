@@ -55,7 +55,7 @@ router.post("/login", (req, res) => {
 
                     // redirect to users account page
                     res.render("users/account", {
-                        userId: user
+                        user: user
                     })
                 }
                 else {
@@ -81,18 +81,44 @@ router.get("/logout", (req, res) => {
 })
 
 // account button -> account page
-router.get("/account", (req, res) => {
-    res.render("users/account")
+router.get("/:id/account", (req, res) => {
+    Users.findById(req.params.id)
+    .then((user) => {
+        res.render("users/account", {
+            user: user
+        })
+    })
 })
 
 // edit account button -> edit account page
-router.get("/users/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res) => {
     Users.findById(req.params.id)
     .then((user) => {
         res.render("users/account-edit", {
-            userInfo : user
+            user: user
         })
     })
+})
+
+router.put("/:id/update", (req, res) => {
+    Users.updateOne({ _id: req.params.id },
+        {
+            $set: {
+                name: req.body.name,
+                contactinfo: req.body.contactinfo,
+                username: req.body.username,
+                location: req.body.location,
+            }
+        })
+        .then((user) => {
+            // redirect to main page after updating
+            res.redirect("account");
+        })
+        // send error as json
+        .catch((error) => {
+            console.log(error);
+            res.json({ error });
+        });
 })
 
 // export the router
