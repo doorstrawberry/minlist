@@ -105,10 +105,14 @@ router.get("/:id/accountview/:viewingId", (req, res) => {
     .then((viewingUser) => {
         Users.findById(req.params.viewingId)
         .then((viewedUser) => {
-            res.render("users/account-view", {
-                viewedUser: viewedUser,
-                viewingUser: viewingUser,
-                reviews: viewingUser.reviews
+            Products.find({belongsTo: req.params.id})
+            .then((usersProducts) => {
+                res.render("users/account-view", {
+                    viewedUser: viewedUser,
+                    viewingUser: viewingUser,
+                    reviews: viewingUser.reviews,
+                    products: usersProducts
+                })
             })
         })
     })

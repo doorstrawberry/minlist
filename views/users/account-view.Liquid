@@ -35,5 +35,16 @@
     </div>
     {% endfor %}
     <a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}"><button class="btn btn-success" style="margin-top: 10px;">add review for {{viewingUser.username}}</button></a>
+    <div class="row">
+        <h1>available products by {{viewingUser.username}}</h1>
+    </div>
+    <div class="row">
+        {% for product in products%}
+        <div class="col-3">
+            <h5>{{product.name}}</h5>
+            <h5><img src="{{product.img}}" alt="{{product.name}} picture" width="100%"></h5>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

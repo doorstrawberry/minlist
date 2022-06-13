@@ -1,13 +1,21 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1>new review</h1>
-<div class="center">
-    <form action="/reviews/{{toUser._id}}/new/{{fromUser._id}}" method="post">
-        <fieldset>
-            <legend>New Review</legend>
-            <label>CONTENT: <textarea type="text" name="content"></textarea></label><br>
-            </label><br>
-            <input type="submit" value="Add Review" />
-        </fieldset>
-    </form>
+<div class="container">
+    <div class="row center">
+        <a href="/users/{{fromUser._id}}/accountview/{{toUser._id}}"><button class="btn btn-primary" style="margin-bottom: 10px;">back</button></a>
+    </div>
+    <div class="row center">
+        <h1>new review for {{fromUser.name}}</h1>
+    </div>
+    <div class="loginContainer">
+        <form class="login" action="/reviews/{{toUser._id}}/new/{{fromUser._id}}" method="post">
+            <fieldset>
+                <legend>new review</legend>
+                <label>review: <textarea type="text" name="content"></textarea></label><br>
+                </label><br>
+                <input type="submit" value="Add Review" class="btn btn-success"/>
+            </fieldset>
+        </form>
+    </div>
 </div>
+
 {% endblock %}
