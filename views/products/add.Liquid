@@ -1,24 +1,29 @@
 {% layout "layout.liquid" %} {% block content %}
-<div class="loginContainer">
-    <div class="login">
-        <form action="/products/{{userId}}/add" method="post">
-            <fieldset>
-                <legend>New Product</legend>
-                <label>NAME: <input type="text" name="name" required></label><br>
-                <label>DESCRIPTION: <input type="text" name="description"></label><br>
-                </label><br>
-                <label>PRICE: <input type="text" name="price" required></label><br>
-                <label>CONDITION: <input type="text" name="condition" list="condition">
-                    <datalist id="condition">
-                        <option value="New/Excellent">
-                        <option value="Good">
-                        <option value="Fair">
-                        <option value="Poor">
-                    </datalist>
-                </label><br>
-                <input type="submit" value="Create Product" class="btn btn-success"/>
-            </fieldset>
-        </form>
+<div class="container">
+    <div class="row center">
+        <a href="/users/{{userId}}/account"><button class="btn btn-primary" style="margin-bottom: 10px;">back</button></a>
+    </div>
+    <div class="loginContainer">
+        <div class="login">
+            <form action="/products/{{userId}}/add" method="post">
+                <fieldset>
+                    <legend>New Product</legend>
+                    <label>NAME: <input type="text" name="name" required></label><br>
+                    <label>DESCRIPTION: <input type="text" name="description"></label><br>
+                    </label><br>
+                    <label>PRICE: <input type="text" name="price" required></label><br>
+                    <label>CONDITION: <input type="text" name="condition" list="condition">
+                        <datalist id="condition">
+                            <option value="New/Excellent">
+                            <option value="Good">
+                            <option value="Fair">
+                            <option value="Poor">
+                        </datalist>
+                    </label><br>
+                    <input type="submit" value="Create Product" class="btn btn-success" />
+                </fieldset>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
