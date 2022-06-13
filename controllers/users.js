@@ -3,6 +3,9 @@ const express = require("express")
 const Users = require("../models/users.js")
 const bcrypt = require("bcrypt")
 
+// Used to remove document by ID
+const { MongoClient, ObjectId } = require('mongodb');
+
 // creating router
 const router = express.Router()
 
@@ -83,21 +86,28 @@ router.get("/logout", (req, res) => {
 // account button -> account page
 router.get("/:id/account", (req, res) => {
     Users.findById(req.params.id)
-    .then((user) => {
-        res.render("users/account", {
-            user: user
+        .then((user) => {
+            res.render("users/account", {
+                user: user
+            })
         })
-    })
 })
 
 // edit account button -> edit account page
 router.get("/:id/edit", (req, res) => {
     Users.findById(req.params.id)
-    .then((user) => {
-        res.render("users/account-edit", {
-            user: user
+        .then((user) => {
+            res.render("users/account-edit", {
+                user: user
+            })
         })
-    })
+})
+
+router.delete("/:id/delete", (req, res) => {
+    Users.deleteOne({ "_id": ObjectId(req.params.id) })
+        .then((user) => {
+            res.redirect("/")
+        })
 })
 
 router.put("/:id/update", (req, res) => {
