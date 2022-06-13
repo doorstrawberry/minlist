@@ -1,0 +1,29 @@
+{% layout "layout.liquid" %} {% block content %}
+<div class="container">
+    <div class="row center">
+        <a href="/users/{{product.belongsTo}}/account"><button class="btn btn-primary" style="margin-bottom: 10px;">back</button></a>
+    </div>
+    <div class="loginContainer">
+        <div class="login">
+            <form action="/products/{{product._id}}/edit/{{product.belongsTo}}?_method=PUT" method="post">
+                <fieldset>
+                    <legend>New Product</legend>
+                    <label>NAME: <input type="text" name="name" required value="{{product.name}}"></label><br>
+                    <label>DESCRIPTION: <input type="text" name="description" value="{{product.description}}"></label><br>
+                    </label><br>
+                    <label>PRICE: <input type="text" name="price" required value="{{product.price}}"></label><br>
+                    <label>CONDITION: <input type="text" name="condition" list="condition" value="{{product.condition}}">
+                        <datalist id="condition">
+                            <option value="New/Excellent">
+                            <option value="Good">
+                            <option value="Fair">
+                            <option value="Poor">
+                        </datalist>
+                    </label><br>
+                    <input type="submit" value="UpdateProduct" class="btn btn-success" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

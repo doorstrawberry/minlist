@@ -50,4 +50,25 @@ router.get("/:id/browse", (req, res) => {
     })
 })
 
+router.get("/:id/edit", (req,res) => {
+    Products.findById(req.params.id)
+    .then((product) => {
+        res.render("products/edit", {
+            product: product
+        })
+    })
+})
+
+router.put("/:id/edit/:userid", (req, res) => {
+    Products.findByIdAndUpdate(req.params.id, {
+        $set: {
+            name: req.body.name, 
+            description: req.body.description, 
+            price: req.body.price, 
+            condition: req.body.condition}})
+    .then((product) => {
+        res.redirect(`/users/${req.params.userid}/account`)
+    })
+})
+
 module.exports = router
