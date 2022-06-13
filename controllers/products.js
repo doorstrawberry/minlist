@@ -13,9 +13,21 @@ router.get("/:id/add", (req, res) => {
 })
 
 router.post("/:id/add", (req, res) => {
-    Products.create(req.body)
+    Products.create({
+        _id: req.params.id,
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        condition: req.body.condition
+    })
     .then((product) => {
         res.redirect(`/users/${req.params.id}/account`)
+    })
+})
+
+router.get("/:id/browse", (req, res) => {
+    res.render("products/browse", {
+        allProducts: Products.find({})
     })
 })
 

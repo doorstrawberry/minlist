@@ -32,6 +32,8 @@ const productsSchema = new Schema({
     }
 }, {
     timestamps: true
+}, {
+    strict: false
 })
 
 // makes product model

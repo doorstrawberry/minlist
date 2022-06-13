@@ -86,8 +86,9 @@ router.get("/logout", (req, res) => {
 router.get("/:id/account", (req, res) => {
     Users.findById(req.params.id)
         .populate('productsList').exec(function (err, user) {
-            Products.find({_id: { $nin: user.productsList } })
+            Products.find({_id: req.params.id })
             .then((products) => {
+                console.log(products)
                 res.render(`users/account`, {
                     user: user,
                     productsList: products
