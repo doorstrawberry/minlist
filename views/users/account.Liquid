@@ -1,19 +1,79 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1 class="center">account page</h1>
-<h1>{{user.name}}</h1>
-<a href="/users/{{user_id}}/edit"><button>Edit Profile</button></a>
-<a href="/products/{{user_id}}/add"><button>Add Product</button></a>
-<a href="/products/{{user_id}}/browse"><button>Browse</button></a>
-<h1 class="center">{{user.contactinfo}}</h1>
-{% if productsList.length > 0%}
-    {% for item in productsList%}
-    <h1>{{item.name}}</h1>
-    {% endfor %}
-{% else %}
-    <h1>No products yet!</h1>
-{% endif %}
-<h1>Reviews</h1>
-{% for review in reviewsList%}
-    <h1>{{review.content}}</h1>
-{% endfor %}
+<main>
+    <div class="container">
+        <h1>my account</h1>
+    </div>
+    <div class="container accountProfile">
+        <div class="row">
+            <div class="col">
+                <h3>name: {{user.name}}</h3>
+            </div>
+            <div class="col">
+                <h3>phone: {{user.contactinfo}}</h3>
+            </div>
+            <div class="col">
+                <a href="/users/{{user_id}}/edit"><button class="btn btn-info">edit profile</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1>my products</h1>
+        </div>
+        {% if productsList.length > 0%}
+        {% for item in productsList%}
+        <div class="row">
+            <div class="col">
+                <h3>{{item.name}}</h3>
+            </div>
+            <div class="col">
+                <a href=""><button class="btn btn-warning">edit product</button></a>
+            </div>
+            <div class="col">
+                <a href=""><button class="btn btn-danger">delete product</button></a>
+            </div>
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="row">
+            <h1>no products yet!</h1>
+        </div>
+        {% endif %}
+        <div class="container accountProducts">
+            <div class="row">
+                <div class="col center">
+                    <a href="/products/{{user_id}}/add"><button class="btn btn-success">add product</button></a>
+                    <a href="/products/{{user_id}}/browse"><button class="btn btn-secondary">browse
+                            products</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1>my reviews</h1>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <h3>from</h3>
+            </div>
+            <div class="col-md">
+                <h3>review</h3>
+            </div>
+        </div>
+        {% for review in reviewsList%}
+        <div class="row">
+            <div class="col-2">
+                <h5>{{review.username}}</h5>
+            </div>
+            <div class="col-md">
+                <h5>{{review.content}}</h5>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</main>
+
 {% endblock %}

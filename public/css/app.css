@@ -63,3 +63,12 @@ body {
 .login fieldset {
     text-align: center;
 }
+
+/* account page styles */
+.accountProfile {
+    margin-bottom: 3%;
+}
+
+.accountProducts {
+    margin-top: 2%;
+}

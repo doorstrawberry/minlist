@@ -18,8 +18,12 @@
 
 <body>
     <header>
-        <h1>minlist</h1>
-        <a href="/users/logout"><button>Log Out</button></a>
+        <div class="container">
+            <div class="row">
+                <div class="col"><h1>minlist</h1></div>
+                <div class="col"><a href="/users/logout"><button class="btn btn-dark logout">Log Out</button></a></div>
+            </div>
+        </div>
     </header>
 
     <main>{% block content %}CONTENT GOES HERE{% endblock %}</main>
