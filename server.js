@@ -14,6 +14,9 @@ const ProductsRouter = require("./controllers/products.js")
 // to use the users route
 const UsersRouter = require("./controllers/users.js")
 
+// to use the reviews route
+const ReviewsRouter = require("./controllers/reviews.js")
+
 // to allow log in
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
@@ -35,6 +38,7 @@ app.use(
 // routes
 app.use("/products", ProductsRouter)
 app.use("/users", UsersRouter)
+app.use("/reviews", ReviewsRouter)
 // testing route (will soon later become a log in)
 app.get("/", (req, res) => {
     res.render("index")
