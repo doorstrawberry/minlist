@@ -1,22 +1,14 @@
-// importing dependencies
+// importing dependeicies
 const express = require("express")
 const Products = require("../models/products.js")
+const Users = require("../models/users.js")
 
 // creating router
 const router = express.Router()
 
 // routes
-router.get("/", (req, res) => {
-    res.render("products/browse-products")
+router.get("/:id/add", (req, res) => {
+    res.render("products/add")
 })
 
-router.get("/sellers", (req, res) => {
-    res.render("products/browse-sellers")
-})
-
-router.get("/create", (req, res) => {
-    res.render("products/add-product")
-})
-
-// export the router
 module.exports = router

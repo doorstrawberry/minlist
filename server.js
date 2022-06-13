@@ -14,9 +14,6 @@ const ProductsRouter = require("./controllers/products.js")
 // to use the users route
 const UsersRouter = require("./controllers/users.js")
 
-// to use the reviews route
-const ReviewsRouter = require("./controllers/reviews.js")
-
 // to allow log in
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
