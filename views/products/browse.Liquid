@@ -1,5 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <div class="container">
+    <a href="/users/{{userID}}/account"><button class="btn btn-info" style="margin-bottom: 10px;">back to account</button></a>
     <div class="row">
         <h1>all products</h1>
     </div>
@@ -8,7 +9,7 @@
         <div class="col-3">
             <h6 class="productName">
                 <a href="/products/{{userID}}/show/{{product.belongsTo}}/{{forloop.index0}}">{{product.name}}</a>
-                <a href="/products/{{userID}}/show/{{product.belongsTo}}/{{forloop.index0}}"><img src="{{product.img}}" alt="{{product.name}} picture" width="200px"></a>
+                <a href="/products/{{userID}}/show/{{product.belongsTo}}/{{forloop.index0}}"><img src="{{product.img}}" alt="{{product.name}} picture" width="80%"></a>
             </h6>
             
         </div>

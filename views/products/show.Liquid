@@ -1,6 +1,37 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1>show page</h1>
-<a href="/users/{{viewingUser._id}}/account">{{viewingUser.name}}</a>
-<a href="/users/{{productUser._id}}/accountview/{{viewingUser._id}}">{{productUser.name}}</a>
-{{product.name}}
+<div class="container">
+    <a href="/products/{{viewingUser._id}}/browse"><button class="btn btn-secondary">browse
+        products</button></a>
+    <div class="row">
+        <h1>{{product.name}}</h1>
+    </div>
+    <div class="row-12 center" style="margin-bottom: 40px;">
+        <img src="{{product.img}}" alt="{{product.name}} image" width="30%">
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if productUser._id == viewingUser._id%}
+            <h5>seller: <a href="/users/{{viewingUser._id}}/account">{{viewingUser.name}}</a></h5>
+            {% else %}
+            <h5>seller: <a href="/users/{{productUser._id}}/accountview/{{viewingUser._id}}">{{productUser.name}}</a></h5>
+            {% endif %}
+        </div>
+        <div class="col">
+            <h5>condition: {{product.condition}}</h5>
+        </div>
+        <div class="col">
+            <h5>description: {{product.description}}</h5>
+        </div>
+        <div class="col">
+            <h5>price: ${{product.price}}</h5>
+        </div>
+        <div class="col">
+            <h5>date posted: {{product.datePosted}}</h5>
+        </div>
+        <div class="col">
+            <h5>contact info: {{productUser.contactinfo}}</h5>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
