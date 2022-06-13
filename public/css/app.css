@@ -39,7 +39,7 @@ body {
         font-size: 100px;}
 }
 
-/* styling the login page */
+/* styling the login and sign up page */
 .loginContainer {
     display: flex;
     justify-content: center;
