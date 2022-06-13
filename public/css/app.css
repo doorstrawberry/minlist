@@ -38,3 +38,28 @@ body {
     98% {content: "minlist";
         font-size: 100px;}
 }
+
+/* styling the login page */
+.loginContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    background: #f0d9da;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login label {
+    margin: 10px;
+}
+
+.login fieldset {
+    text-align: center;
+}
