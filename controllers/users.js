@@ -92,7 +92,8 @@ router.get("/:id/account", (req, res) => {
                         res.render(`users/account`, {
                             user_id: req.params.id,
                             user: userp,
-                            productsList: products
+                            productsList: products,
+                            reviewsList: userp.reviews
                         })
                     })
             })
