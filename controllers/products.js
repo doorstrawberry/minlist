@@ -71,4 +71,11 @@ router.put("/:id/edit/:userid", (req, res) => {
     })
 })
 
+router.delete("/:id/delete/:userid", (req, res) => {
+    Products.findByIdAndRemove(req.params.id)
+    .then((next) => {
+        res.redirect(`/users/${req.params.userid}/account`)
+    })
+})
+
 module.exports = router
