@@ -54,7 +54,9 @@ router.post("/login", (req, res) => {
                     req.session.loggedIn = true
 
                     // redirect to users account page
-                    res.render("users/account")
+                    res.render("users/account", {
+                        userId: user
+                    })
                 }
                 else {
                     res.json({ error: "password doesen't match" })
@@ -84,8 +86,13 @@ router.get("/account", (req, res) => {
 })
 
 // edit account button -> edit account page
-router.get("/users/account/edit", (req, res) => {
-    res.render("users/account-edit")
+router.get("/users/:id/edit", (req, res) => {
+    Users.findById(req.params.id)
+    .then((user) => {
+        res.render("users/account-edit", {
+            userInfo : user
+        })
+    })
 })
 
 // export the router

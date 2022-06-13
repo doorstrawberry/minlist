@@ -1,8 +1,8 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1 class="center">account page</h1>
-<a href="users/account/edit"><button>Edit Profile</button></a>
+<a href="users/{{userId._id}}/edit"><button>Edit Profile</button></a>
 <a href="/products/create"><button>Add Product to Sell</button></a>
 <a href="/products"><button>Browse Products</button></a>
 <a href="/products/sellers"><button>Browse Sellers</button></a>
-<h1 class="center">reviews</h1>
+<h1 class="center">{{userId._id}}</h1>
 {% endblock %}
