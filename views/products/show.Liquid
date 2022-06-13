@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1>show page</h1>
-{{viewingUser.name}}
-{{productUser.name}}
+<a href="/users/{{viewingUser._id}}/account">{{viewingUser.name}}</a>
+<a href="/users/{{productUser._id}}/accountview">{{productUser.name}}</a>
 {{product.name}}
 {% endblock %}

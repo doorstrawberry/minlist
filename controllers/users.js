@@ -99,6 +99,15 @@ router.get("/:id/account", (req, res) => {
         })
 })
 
+router.get("/:id/accountview", (req, res) => {
+    Users.findById(req.params.id)
+    .then((user) => {
+        res.render("users/account-view", {
+            user: user
+        })
+    })
+})
+
 // edit account button -> edit account page
 router.get("/:id/edit", (req, res) => {
     Users.findById(req.params.id)
