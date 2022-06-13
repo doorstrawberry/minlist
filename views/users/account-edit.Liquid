@@ -1,20 +1,24 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1 class="center">account edit page</h1>
-<div class="center">
-    <form action="/users/{{user._id}}/update?_method=PUT" method="POST">
-        <fieldset>
-            <legend>Edit {{user.name}}</legend>
-            <label>NAME: <input type="text" name="name" value="{{user.name}}"></label><br>
-            <label>PHONE: <input type="text" name="contactinfo" value="{{user.contactinfo}}"></label><br>
-            <label>USERNAME: <input type="text" name="username" value="{{user.username}}" /> </label><br>
-            <label>LOCATION: <input type="text" name="location" value="{{user.location}}" /> </label><br>
-            </label><br>
-            <input type="submit" value="Update Info" />
-        </fieldset>
-    </form>
-    <form action="/users/{{user._id}}/delete?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
+<div class="container center">
+    <h1>account settings</h1>
+    <a href="/users/{{user._id}}/account"><button class="btn btn-primary" style="margin-bottom: 10px;">back</button></a>
+    <form class="center" style="margin-bottom: 10px;" action="/users/{{user._id}}/delete?_method=DELETE" method="POST">
+        <input type="submit" value="delete account" class="btn btn-danger">
     </form>
 </div>
-<a href="/users/{{user._id}}/account"><button>Back</button></a>
+<div class="loginContainer">
+    <div class="login">
+        <form action="/users/{{user._id}}/update?_method=PUT" method="POST">
+            <fieldset>
+                <legend>Edit {{user.name}}</legend>
+                <label>NAME: <input type="text" name="name" value="{{user.name}}"></label><br>
+                <label>PHONE: <input type="text" name="contactinfo" value="{{user.contactinfo}}"></label><br>
+                <label>USERNAME: <input type="text" name="username" value="{{user.username}}" /> </label><br>
+                <label>LOCATION: <input type="text" name="location" value="{{user.location}}" /> </label><br>
+                </label><br>
+                <input type="submit" value="Update Info" class="btn btn-success"/>
+            </fieldset>
+        </form>
+    </div>
+</div>
 {% endblock %}
