@@ -29,6 +29,9 @@ const productsSchema = new Schema({
     datePosted: {
         type: Date,
         default: Date()
+    },
+    belongsTo: {
+        type: String
     }
 }, {
     timestamps: true

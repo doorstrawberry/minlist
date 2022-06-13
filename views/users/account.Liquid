@@ -1,9 +1,9 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1 class="center">account page</h1>
 <h1>{{user.name}}</h1>
-<a href="/users/{{user._id}}/edit"><button>Edit Profile</button></a>
-<a href="/products/{{user._id}}/add"><button>Add Product</button></a>
-<a href="/products/{{user._id}}/browse"><button>Browse</button></a>
+<a href="/users/{{user_id}}/edit"><button>Edit Profile</button></a>
+<a href="/products/{{user_id}}/add"><button>Add Product</button></a>
+<a href="/products/{{user_id}}/browse"><button>Browse</button></a>
 <h1 class="center">{{user.contactinfo}}</h1>
 {% if productsList.length > 0%}
     {% for item in productsList%}
