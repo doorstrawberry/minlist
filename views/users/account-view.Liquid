@@ -1,10 +1,39 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1>Account View</h1>
-<h1>This is {{viewingUser.name}} profile</h1>
-<h1>You are viewing as {{viewedUser.name}}</h1>
-<a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}">Add Review for {{viewingUser.name}}</a>
-{% for review in reviews%}
-    <h1>{{review.content}}</h1>
-{% endfor %}
-
+<div class="container">
+    <a href="/products/{{viewedUser._id}}/browse"><button class="btn btn-secondary">browse
+        products</button></a>
+    <div class="row">
+        <h1>profile: {{viewingUser.username}}</h1>
+    </div>
+    <div class="row">
+        <h3>name: {{viewingUser.name}}</h3>
+    </div>
+    <div class="row">
+        <h3>contact info: {{viewingUser.contactinfo}}</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h1>reviews on {{viewingUser.username}}</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>from</h3>
+        </div>
+        <div class="col">
+            <h3>review</h3>
+        </div>
+    </div>
+    {% for review in reviews%}
+    <div class="row">
+        <div class="col">
+            <h5>{{review.username}}</h5>
+        </div>
+        <div class="col">
+            <h5>{{review.content}}</h5>
+        </div>
+    </div>
+    {% endfor %}
+    <a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}"><button class="btn btn-success" style="margin-top: 10px;">add review for {{viewingUser.username}}</button></a>
+</div>
 {% endblock %}
