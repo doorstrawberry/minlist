@@ -3,6 +3,8 @@
 <h1>Viewing {{viewingUser.name}}</h1>
 <h1>Viewed {{viewedUser.name}}</h1>
 <a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}">Add Review for {{viewingUser.name}}</a>
-{{reviews}}
-<h1>{{reviews[0].content}}</h1>
+{% for review in reviews%}
+<h1>{{reviews[forloop.index].content}}</h1>
+{% endfor %}
+
 {% endblock %}

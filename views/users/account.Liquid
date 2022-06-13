@@ -13,5 +13,7 @@
     <h1>No products yet!</h1>
 {% endif %}
 <h1>Reviews</h1>
-<h1>{{reviewsList[0].content}}</h1>
+{% for review in reviewsList%}
+<h1>{{reviewsList[forloop.index].content}}</h1>
+{% endfor %}
 {% endblock %}
