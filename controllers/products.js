@@ -1,6 +1,7 @@
 // importing dependeicies
 const express = require("express")
 const Products = require("../models/products.js")
+const Users = require("../models/users.js")
 
 // creating router
 const router = express.Router()
@@ -25,8 +26,26 @@ router.post("/:id/add", (req, res) => {
     })
 })
 
+router.get("/:userid/show/:ownerid/:index", (req, res) => {
+    Users.findById(req.params.userid)
+    .then((user1) => {
+        Users.findById(req.params.ownerid)
+        .then((user2) => {
+            Products.find({})
+            .then((products) => {
+                res.render("products/show", {
+                    viewingUser: user1,
+                    productUser: user2,
+                    product: products[req.params.index]
+                })
+            })
+        })
+    })
+})
+
 router.get("/:id/browse", (req, res) => {
     res.render("products/browse", {
+        userID: req.params.id,
         allProducts: Products.find({})
     })
 })

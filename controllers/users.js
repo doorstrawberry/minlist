@@ -85,7 +85,7 @@ router.get("/logout", (req, res) => {
 // account button -> account page
 router.get("/:id/account", (req, res) => {
     Users.find({ belongsTo: req.params.id })
-        .populate('productsList').exec(function (err, user) {
+        .populate('productsList').exec(function (err) {
             Users.findOne({ _id: req.params.id }).then((userp) => {
                 Products.find({belongsTo: req.params.id })
                     .then((products) => {

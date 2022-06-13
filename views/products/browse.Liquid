@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1>Browsing page</h1>
 {% for product in allProducts %}
-    <h6>{{product.name}}</h6>
+    <h6><a href="/products/{{userID}}/show/{{product.belongsTo}}/{{forloop.index0}}">{{product.name}}</a></h6>
 {% endfor %}
 {% endblock %}
