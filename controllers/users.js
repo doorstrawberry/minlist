@@ -1,6 +1,7 @@
 // importing dependeicies
 const express = require("express")
 const Users = require("../models/users.js")
+const Products = require("../models/products.js")
 const bcrypt = require("bcrypt")
 
 // Used to remove document by ID
@@ -57,9 +58,7 @@ router.post("/login", (req, res) => {
                     req.session.loggedIn = true
 
                     // redirect to users account page
-                    res.render("users/account", {
-                        user: user
-                    })
+                    res.redirect(`/users/${user._id}/account`)
                 }
                 else {
                     res.json({ error: "password doesen't match" })
@@ -86,10 +85,14 @@ router.get("/logout", (req, res) => {
 // account button -> account page
 router.get("/:id/account", (req, res) => {
     Users.findById(req.params.id)
-        .then((user) => {
-            res.render("users/account", {
-                user: user
-            })
+        .populate('productsList').exec(function (err, user) {
+            Products.find({_id: { $nin: user.productsList } })
+            .then((products) => {
+                res.render(`users/account`, {
+                    user: user,
+                    productsList: products
+                })
+            })  
         })
 })
 

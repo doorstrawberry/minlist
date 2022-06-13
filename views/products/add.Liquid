@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 <div class="center">
-    <form action="" method="post">
+    <form action="/products/{{userId}}/add" method="post">
         <fieldset>
             <legend>New Product</legend>
             <label>NAME: <input type="text" name="name" required></label><br>
