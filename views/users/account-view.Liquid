@@ -1,10 +1,10 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1>Account View</h1>
-<h1>Viewing {{viewingUser.name}}</h1>
-<h1>Viewed {{viewedUser.name}}</h1>
+<h1>This is {{viewingUser.name}} profile</h1>
+<h1>You are viewing as {{viewedUser.name}}</h1>
 <a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}">Add Review for {{viewingUser.name}}</a>
 {% for review in reviews%}
-<h1>{{reviews[forloop.index].content}}</h1>
+    <h1>{{review.content}}</h1>
 {% endfor %}
 
 {% endblock %}

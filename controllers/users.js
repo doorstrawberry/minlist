@@ -108,7 +108,7 @@ router.get("/:id/accountview/:viewingId", (req, res) => {
             res.render("users/account-view", {
                 viewedUser: viewedUser,
                 viewingUser: viewingUser,
-                reviews: viewedUser.reviews
+                reviews: viewingUser.reviews
             })
         })
     })
