@@ -6,30 +6,16 @@ const Products = require("../models/products.js")
 const router = express.Router()
 
 // routes
-
-// index
 router.get("/", (req, res) => {
-    res.send("products index route")
-})
-// new
-router.get("/new", (req, res) => {
-    res.send("products new route")
+    res.render("products/browse-products")
 })
 
-// destroy
-
-// update
-
-// create
-
-// edit
-router.get("/:id/edit", (req, res) => {
-    res.send("products edit route")
+router.get("/sellers", (req, res) => {
+    res.render("products/browse-sellers")
 })
 
-// show
-router.get("/:id", (req, res) => {
-    res.send("products show route")
+router.get("/create", (req, res) => {
+    res.render("products/add-product")
 })
 
 // export the router

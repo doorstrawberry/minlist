@@ -1,11 +1,8 @@
 {% layout "layout.liquid" %} {% block content %}
-<a href=""><button>Edit User</button></a>
-<a href=""><button>View Products</button></a>
-<a href=""><button>View Users</button></a>
-<a href="/users/logout"><button>Log Out</button></a>
-{{userInfo.name}}
-{{userInfo.username}}
-{{userInfo.contactinfo}}
-{{userInfo.reviews}}
-{{userInfo.productsList}}
+<h1 class="center">account page</h1>
+<a href="users/account/edit"><button>Edit Profile</button></a>
+<a href="/products/create"><button>Add Product to Sell</button></a>
+<a href="/products"><button>Browse Products</button></a>
+<a href="/products/sellers"><button>Browse Sellers</button></a>
+<h1 class="center">reviews</h1>
 {% endblock %}
