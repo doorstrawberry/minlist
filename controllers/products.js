@@ -63,7 +63,8 @@ router.put("/:id/edit/:userid", (req, res) => {
     Products.findByIdAndUpdate(req.params.id, {
         $set: {
             name: req.body.name, 
-            description: req.body.description, 
+            description: req.body.description,
+            img: req.body.img,
             price: req.body.price, 
             condition: req.body.condition}})
     .then((product) => {
