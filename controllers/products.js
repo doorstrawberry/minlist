@@ -17,6 +17,7 @@ router.post("/:id/add", (req, res) => {
     Products.create({
         belongsTo: req.params.id,
         name: req.body.name,
+        img: req.body.img,
         description: req.body.description,
         price: req.body.price,
         condition: req.body.condition
