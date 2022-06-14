@@ -142,7 +142,6 @@ router.put("/:id/update", (req, res) => {
                 name: req.body.name,
                 contactinfo: req.body.contactinfo,
                 username: req.body.username,
-                location: req.body.location,
             }
         })
         .then((user) => {
