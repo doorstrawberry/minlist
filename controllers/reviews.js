@@ -1,5 +1,6 @@
 // importing dependeicies
 const express = require("express")
+const { isObjectIdOrHexString, Cursor } = require("mongoose")
 const Users = require("../models/users.js")
 
 // creating router
@@ -34,6 +35,22 @@ router.post("/:toid/new/:fromid", (req, res) => {
         })
 })
 
-
+router.put("/:toid/delete/:fromid/:reviewid", (req, res) => {
+    Users.findById(req.params.fromid)
+        .populate("reviews").exec(function (err) {
+            Users.findById(req.params.fromid)
+                .then((user) => {
+                    for (let i = 0; i < user.reviews.length; i++) {
+                        if (user.reviews[i] === user.reviews.id(req.params.reviewid)) {                         
+                            Users.find({_id: req.params.fromid})
+                            .then((user) => {
+                                console.log(user)
+                            })
+                        }
+                    }
+                })
+        })
+    res.redirect(`/users/${req.params.fromid}/accountview/${req.params.toid}`)
+})
 
 module.exports = router
