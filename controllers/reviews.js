@@ -19,7 +19,7 @@ router.get("/:fromid/new/:forid", (req, res) => {
         })
 })
 
-router.post("/:fromid/new/:forid", (req, res) => {
+router.post("/:toid/new/:fromid", (req, res) => {
     Users.findById(req.params.fromid)
         .then((fromUser) => {
             Users.findById(req.params.forid, function (err, forUser) {
