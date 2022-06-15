@@ -44,17 +44,6 @@ router.post("/:toid/new/:fromid", (req, res) => {
 })
 
 router.delete("/:toid/delete/:fromid/:reviewid", (req, res) => {
-    // Users.findById(req.params.fromid)
-    //     .populate("reviews").exec(function (err) {
-    //         Users.findById(req.params.fromid)
-    //             .then((user) => {
-    //                 for (let i = 0; i < user.reviews.length; i++) {
-    //                     if (user.reviews[i] === user.reviews.id(req.params.reviewid)) {
-    //                         console.log(user.reviews)
-    //                     }
-    //                 }
-    //             })
-    //     })
     const fromId = req.params.fromid
     const reviewId = req.params.reviewid
     Users.findById(fromId)
