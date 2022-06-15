@@ -10,6 +10,14 @@ const { MongoClient, ObjectId } = require('mongodb');
 // creating router
 const router = express.Router()
 
+router.use((req, res, next) => {
+    if (req.session.loggedIn) {
+        next();
+    } else {
+        res.redirect("/user/login");
+    }
+});
+
 // routes
 
 // index -> sign up

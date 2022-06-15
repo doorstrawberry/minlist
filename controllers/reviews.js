@@ -6,6 +6,14 @@ const Users = require("../models/users.js")
 // creating router
 const router = express.Router()
 
+router.use((req, res, next) => {
+    if (req.session.loggedIn) {
+        next();
+    } else {
+        res.redirect("/user/login");
+    }
+});
+
 // routes
 router.get("/:fromid/new/:forid", (req, res) => {
     Users.findById(req.params.fromid)
