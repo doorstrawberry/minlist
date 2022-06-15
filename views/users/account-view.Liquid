@@ -32,6 +32,12 @@
         <div class="col">
             <h5>{{review.content}}</h5>
         </div>
+        {% if viewingUser._id == review.writtenBy and viewedUser._id == review.reviewFor %}
+        <div class="col">
+            <a href=""><button class="btn btn-warning">Edit review</button></a>
+            <a href=""><button class="btn btn-danger">Delete review</button></a>
+        </div>
+        {% endif %}
     </div>
     {% endfor %}
     <a href="/reviews/{{viewingUser._id}}/new/{{viewedUser._id}}"><button class="btn btn-success" style="margin-top: 10px;">add review for {{viewingUser.username}}</button></a>
