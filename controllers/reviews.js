@@ -20,13 +20,13 @@ router.get("/:fromid/new/:forid", (req, res) => {
 })
 
 router.post("/:toid/new/:fromid", (req, res) => {
-    Users.findById(req.params.fromid)
+    Users.findById(req.params.toid)
         .then((fromUser) => {
-            Users.findById(req.params.forid, function (err, forUser) {
+            Users.findById(req.params.fromid, function (err, forUser) {
                 req.body.username = fromUser.name
                 forUser.reviews.push(req.body)
                 forUser.save(function (err) {
-                    res.redirect(`/users/${req.params.forid}/accountview/${req.params.fromid}`)
+                    res.redirect(`/users/${req.params.fromid}/accountview/${req.params.toid}`)
                 })
             })
         })
