@@ -10,6 +10,10 @@ const reviewSchema = new Schema({
     username: String,
     // content of the review
     content: String,
+    // who is this review for?
+    reviewFor: String,
+    // who is this review written by?
+    writtenBy: String
   }, {
     timestamps: true
   });
