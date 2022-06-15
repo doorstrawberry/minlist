@@ -43,22 +43,36 @@ router.post("/:toid/new/:fromid", (req, res) => {
         })
 })
 
-router.put("/:toid/delete/:fromid/:reviewid", (req, res) => {
-    Users.findById(req.params.fromid)
-        .populate("reviews").exec(function (err) {
-            Users.findById(req.params.fromid)
-                .then((user) => {
-                    for (let i = 0; i < user.reviews.length; i++) {
-                        if (user.reviews[i] === user.reviews.id(req.params.reviewid)) {                         
-                            Users.find({_id: req.params.fromid})
-                            .then((user) => {
-                                console.log(user)
-                            })
-                        }
-                    }
-                })
-        })
-    res.redirect(`/users/${req.params.fromid}/accountview/${req.params.toid}`)
+router.delete("/:toid/delete/:fromid/:reviewid", (req, res) => {
+    // Users.findById(req.params.fromid)
+    //     .populate("reviews").exec(function (err) {
+    //         Users.findById(req.params.fromid)
+    //             .then((user) => {
+    //                 for (let i = 0; i < user.reviews.length; i++) {
+    //                     if (user.reviews[i] === user.reviews.id(req.params.reviewid)) {
+    //                         console.log(user.reviews)
+    //                     }
+    //                 }
+    //             })
+    //     })
+    const fromId = req.params.fromid
+    const reviewId = req.params.reviewid
+    Users.findById(fromId)
+    .then((user) => {
+        const theReviews = user.reviews.id(reviewId)
+        console.log(theReviews)
+        if (String(theReviews._id) == String(req.params.reviewid)) {
+            theReviews.remove()
+            console.log("reached here")
+            return user.save()
+        }
+        else {
+            return
+        }
+    })
+    .then((user) => {
+        res.redirect(`/users/${req.params.fromid}/accountview/${req.params.toid}`)
+    })
 })
 
 module.exports = router
