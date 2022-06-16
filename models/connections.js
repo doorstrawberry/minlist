@@ -3,14 +3,14 @@ require("dotenv").config() // need this to access the DATABASE_URL variable in t
 const mongoose = require("mongoose") // need this to connect to the mongodb database via mongoose
 
 // setting up inputs
-const DATABASE_URL = process.env.DATABASE_URL
+const MONGODB_URI = process.env.MONGODB_URI
 const CONFIG = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }
 
 // establish connection with the database
-mongoose.connect(DATABASE_URL, CONFIG)
+mongoose.connect(MONGODB_URI, CONFIG)
 const db = mongoose.connection
 
 // feedback for open/disconnect/error events
