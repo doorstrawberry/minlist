@@ -41,7 +41,7 @@ app.use("/users", UsersRouter)
 app.use("/reviews", ReviewsRouter)
 // testing route (will soon later become a log in)
 app.get("/", (req, res) => {
-    res.render("index.liquid")
+    res.render("start/index.liquid")
 })
 
 // server listener
