@@ -49,10 +49,47 @@ router.delete("/:toid/delete/:fromid/:reviewid", (req, res) => {
     Users.findById(fromId)
     .then((user) => {
         const theReviews = user.reviews.id(reviewId)
-        console.log(theReviews)
-        if (String(theReviews._id) == String(req.params.reviewid)) {
+        if (String(theReviews._id) === req.params.reviewid) {
             theReviews.remove()
-            console.log("reached here")
+            return user.save()
+        }
+        else {
+            return
+        }
+    })
+    .then((user) => {
+        res.redirect(`/users/${req.params.fromid}/accountview/${req.params.toid}`)
+    })
+})
+
+router.get("/:toid/update/:fromid/:reviewid", (req, res) => {
+    const fromId = req.params.fromid
+    const reviewId = req.params.reviewid
+    Users.findById(fromId)
+    .then((user) => {
+        const theReviews = user.reviews.id(reviewId)
+        if (String(theReviews._id) === req.params.reviewid){
+            res.render("reviews/edit", {
+                reviewid: req.params.reviewid,
+                toUserId: req.params.toid,
+                fromUser: user,
+                review: theReviews
+            })
+        }
+        else {
+            return
+        }
+    })
+})
+
+router.put("/:toid/update/:fromid/:reviewid", (req, res) => {
+    const fromId = req.params.fromid
+    const reviewId = req.params.reviewid
+    Users.findById(fromId)
+    .then((user) => {
+        const theReviews = user.reviews.id(reviewId)
+        if (String(theReviews._id) === req.params.reviewid){
+            theReviews.content = req.body.content
             return user.save()
         }
         else {

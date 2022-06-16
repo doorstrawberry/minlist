@@ -34,16 +34,12 @@
         </div>
         {% if viewingUser._id == review.writtenBy and viewedUser._id == review.reviewFor %}
         <div class="col">
-            <a href=""><button class="btn btn-warning">Edit review</button></a>
-
-
-
+            <form action="/reviews/{{viewedUser._id}}/update/{{viewingUser._id}}/{{review._id}}" method="GET">
+                <input type="submit" value="Edit review" class="btn btn-warning">
+            </form>
             <form action="/reviews/{{viewedUser._id}}/delete/{{viewingUser._id}}/{{review._id}}?_method=DELETE" method="POST">
                 <input type="submit" class="btn btn-danger" value="Delete review">
             </form>
-
-
-
         </div>
         {% endif %}
     </div>
