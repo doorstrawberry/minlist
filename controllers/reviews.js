@@ -20,7 +20,7 @@ router.get("/:fromid/new/:forid", (req, res) => {
         .then((fromUser) => {
             Users.findById(req.params.forid)
                 .then((toUser) => {
-                    res.render("reviews/new.liquid", {
+                    res.render("reviews0/new.liquid", {
                         fromUser: fromUser,
                         toUser: toUser
                     })
@@ -69,7 +69,7 @@ router.get("/:toid/update/:fromid/:reviewid", (req, res) => {
     .then((user) => {
         const theReviews = user.reviews.id(reviewId)
         if (String(theReviews._id) === req.params.reviewid){
-            res.render("reviews/edit.liquid", {
+            res.render("reviews0/edit.liquid", {
                 reviewid: req.params.reviewid,
                 toUserId: req.params.toid,
                 fromUser: user,
