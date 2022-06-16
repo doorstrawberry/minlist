@@ -16,7 +16,7 @@ router.use((req, res, next) => {
 
 // routes
 router.get("/:id/add", (req, res) => {
-    res.render("products/add", {
+    res.render("products/add.liquid", {
         userId: req.params.id
     })
 })
@@ -42,7 +42,7 @@ router.get("/:userid/show/:ownerid/:index", (req, res) => {
         .then((user2) => {
             Products.find({})
             .then((products) => {
-                res.render("products/show", {
+                res.render("products/show.liquid", {
                     viewingUser: user1,
                     productUser: user2,
                     product: products[req.params.index]
@@ -53,7 +53,7 @@ router.get("/:userid/show/:ownerid/:index", (req, res) => {
 })
 
 router.get("/:id/browse", (req, res) => {
-    res.render("products/browse", {
+    res.render("products/browse.liquid", {
         userID: req.params.id,
         allProducts: Products.find({})
     })
@@ -62,7 +62,7 @@ router.get("/:id/browse", (req, res) => {
 router.get("/:id/edit", (req,res) => {
     Products.findById(req.params.id)
     .then((product) => {
-        res.render("products/edit", {
+        res.render("products/edit.liquid", {
             product: product
         })
     })

@@ -14,7 +14,7 @@ const router = express.Router()
 
 // index -> sign up
 router.get("/signup", (req, res) => {
-    res.render("users/signup")
+    res.render("users/signup.liquid")
 })
 
 // sign up -> log in
@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
     // create user
     Users.create(req.body)
         .then((user) => {
-            res.render("users/login")
+            res.render("users/login.liquid")
         })
         .catch((error) => {
             console.log(error)
@@ -37,7 +37,7 @@ router.post("/signup", async (req, res) => {
 
 // index -> log in 
 router.get("/login", (req, res) => {
-    res.render("users/login")
+    res.render("users/login.liquid")
 })
 
 // log in -> account
@@ -78,7 +78,7 @@ router.post("/login", (req, res) => {
 router.get("/logout", (req, res) => {
     // destroy session and redirect to main page
     req.session.destroy((err) => {
-        res.render("index")
+        res.render("index.liquid")
     });
 })
 
@@ -89,7 +89,7 @@ router.get("/:id/account", (req, res) => {
             Users.findOne({ _id: req.params.id }).then((userp) => {
                 Products.find({belongsTo: req.params.id })
                     .then((products) => {
-                        res.render(`users/account`, {
+                        res.render(`users/account.liquid`, {
                             user_id: req.params.id,
                             user: userp,
                             productsList: products,
@@ -107,7 +107,7 @@ router.get("/:id/accountview/:viewingId", (req, res) => {
         .then((viewedUser) => {
             Products.find({belongsTo: req.params.id})
             .then((usersProducts) => {
-                res.render("users/account-view", {
+                res.render("users/account-view.liquid", {
                     viewedUser: viewedUser,
                     viewingUser: viewingUser,
                     reviews: viewingUser.reviews,
@@ -122,7 +122,7 @@ router.get("/:id/accountview/:viewingId", (req, res) => {
 router.get("/:id/edit", (req, res) => {
     Users.findById(req.params.id)
         .then((user) => {
-            res.render("users/account-edit", {
+            res.render("users/account-edit.liquid", {
                 user: user
             })
         })
