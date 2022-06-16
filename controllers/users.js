@@ -89,7 +89,7 @@ router.get("/:id/account", (req, res) => {
             Users.findOne({ _id: req.params.id }).then((userp) => {
                 Products.find({belongsTo: req.params.id })
                     .then((products) => {
-                        res.render(`users0/account.liquid`, {
+                        res.render("users0/account.liquid", {
                             user_id: req.params.id,
                             user: userp,
                             productsList: products,
