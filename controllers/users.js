@@ -107,7 +107,7 @@ router.get("/:id/accountview/:viewingId", (req, res) => {
         .then((viewedUser) => {
             Products.find({belongsTo: req.params.id})
             .then((usersProducts) => {
-                res.render("users/account-view.liquid", {
+                res.render("users0/account-view.liquid", {
                     viewedUser: viewedUser,
                     viewingUser: viewingUser,
                     reviews: viewingUser.reviews,
@@ -122,7 +122,7 @@ router.get("/:id/accountview/:viewingId", (req, res) => {
 router.get("/:id/edit", (req, res) => {
     Users.findById(req.params.id)
         .then((user) => {
-            res.render("users/account-edit.liquid", {
+            res.render("users0/account-edit.liquid", {
                 user: user
             })
         })
