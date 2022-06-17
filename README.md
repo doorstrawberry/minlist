@@ -12,7 +12,6 @@ Honestly, the website speaks for itself. You need an account, but you don't need
 * CSS5 (Bootstrap framework)
 * Javascript (Node JS, Liquid, Express)
 * MongoDB/Mongoose Database (Atlas)
-* Google Maps Web API (So you know where a user can be) -> [documentation](https://developers.google.com/maps/documentation/javascript/overview)
 
 ## A Cool Wireframe
 ![Account Page](https://user-images.githubusercontent.com/104126976/173100890-4b5624ae-5ffc-40ee-8378-9f95005d9fe4.jpg)
